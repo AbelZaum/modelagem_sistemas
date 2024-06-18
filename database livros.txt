@@ -25,8 +25,14 @@ CREATE TABLE emprestimos (
     FOREIGN KEY (id_livro) REFERENCES livros(id)
 );
 
+ALTER TABLE livros ADD quantidade INT DEFAULT 0;
+
+
 insert into usuarios (nome,login,senha) values ('gabriel','abel','123');
 
-select * from usuarios;
+insert into livros (id,titulo,disponivel, quantidade) values ('4','Potter','1','5');
+
+
+select * from livros;
 
 drop database biblioteca;
