@@ -25,14 +25,24 @@ CREATE TABLE emprestimos (
     FOREIGN KEY (id_livro) REFERENCES livros(id)
 );
 
-ALTER TABLE livros ADD quantidade INT DEFAULT 0;
+ALTER TABLE emprestimos ADD COLUMN data_devolucao DATE;
+
+ALTER TABLE livros MODIFY disponivel VARCHAR(3);
+ALTER TABLE livros ADD COLUMN quantidade INT DEFAULT 0;
 
 
 insert into usuarios (nome,login,senha) values ('gabriel','abel','123');
 
-insert into livros (id,titulo,disponivel, quantidade) values ('4','Potter','1','5');
+INSERT INTO livros (titulo, disponivel, quantidade) VALUES 
+('Harry Potter', 'sim', 5),
+('Senhor dos Anéis', 'sim', 3),
+('O Pequeno Príncipe', 'não', 0),
+('1984', 'sim', 2),
+('O Alquimista', 'não', 0);
 
+select * from usuarios;
 
-select * from livros;
+DESCRIBE livros;
+
 
 drop database biblioteca;
